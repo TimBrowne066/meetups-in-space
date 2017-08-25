@@ -1,0 +1,22 @@
+<h1><%=@meetup.name %></h1>
+
+<div>
+  <ul>
+    <li>Description:  <%= @meetup.description%></li>
+    <li>Location:  <%= @meetup.location%></li>
+    <li>Created by:  <%= @meetup.creator%></li>
+  </ul>
+</div>
+
+
+<div>ATTENDING:
+  <ul>
+    <% @attendees.each do |attendee|%>
+    <p><img height="45" width="45" src="<%=attendee.avatar_url%>"> <%= attendee.username %></p>
+    <% end %>
+  </ul>
+</div>
+
+<form class="join" action="/meetups/<%=@id%>" method="post">
+  <input type="submit" value="Join This Meeting!">
+</form>
